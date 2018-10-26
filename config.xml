@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0"
-    id          = "com.rocksetta.knn-celebrity"
-    versionCode = "10"
-    version     = "1.04.01" >      <!-- Change this before each compile -->
+    id          = "com.rocksetta.party-app"
+    versionCode = "11"
+    version     = "1.05.01" >      <!-- Change this before each compile -->
 
   <name>Party App: Celebrity Face Match</name>
   <description>
@@ -60,7 +60,7 @@
 
 
     <access origin="*" />    
-    <allow-intent href="https://hpssjellis.github.io/celebclassify/*" />
+    <allow-intent href="https://www.rocksetta.com/party-app/*" />
 
   <!--  <preference name="AndroidPersistentFileLocation" value="Internal" />  -->
  <!--   <preference name="permissions" value="none" />   -->
