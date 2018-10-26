@@ -63,7 +63,7 @@
     <allow-intent href="https://www.rocksetta.com/party-app/*" />
 
   <!--  <preference name="AndroidPersistentFileLocation" value="Internal" />  -->
- <!--   <preference name="permissions" value="none" />   -->
+    <preference name="permissions" value="none" />   
     <plugin name="cordova-plugin-whitelist" spec="~1" /> 
  <!--   <plugin name="cordova-plugin-file" spec="~6" source="npm" />  -->
     
