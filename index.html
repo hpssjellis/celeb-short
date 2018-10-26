@@ -677,8 +677,8 @@ myLoadOneImage  = async function(myGroupNumber){
    console.log('Define Model')                                                                                                                                                                                       
    const myClassifierModel = tf.model({inputs: myLayerList[1], outputs: myConcatenate1Dense4});    // This would be a global model. With list of inputs as an array                                                                                                                                                                                         
    //myClassifierModel.summary()    // show a summary of the load
-   console.log('myClassifierModel.layers[myMaxClasses]')     
-   console.log(myClassifierModel.layers[myMaxClasses])
+   //console.log('myClassifierModel.layers[myMaxClasses]')     
+   //console.log(myClassifierModel.layers[myMaxClasses])
    myPassedClassifier.getClassifierDataset()[0].print(true)                                                                                            
                                                                                              
    for (let myClassifierLoop = 0; myClassifierLoop < myMaxClasses; myClassifierLoop++ ){   // since the first layers are inputs must add maxClasses   
@@ -703,7 +703,7 @@ myClassifierSave  = async function(){
                                                                                                                                                                                         
    const myClassifierModel2 = await myDefineClassifierModel(classifier)         // pass global classifier                                                                                                                                                                                                                                                                      
    myClassifierModel2.save('downloads://myClassifierModel01')  
-   myClassifierModel2.summary(null,null,x => {document.getElementById('myDivSummary').innerHTML += x + '<br>'});                                                                                                                                                                                                                                                                             
+   //myClassifierModel2.summary(null,null,x => {document.getElementById('myDivSummary').innerHTML += x + '<br>'});                                                                                                                                                                                                                                                                             
 }
                                                                                              
  
@@ -737,15 +737,15 @@ myClassifierLoad  = async function(){
                                               
       // console.log('myLoadedModel.layers['+myWeightLoop+']')   
       // console.log(myLoadedModel.layers[myWeightLoop])          
-      console.log('myLoadedModel.layers['+myWeightLoop+'].getWeights()[0].print(true)') 
+     // console.log('myLoadedModel.layers['+myWeightLoop+'].getWeights()[0].print(true)') 
      // myLoadedModel.layers[myWeightLoop].getWeights()[0].print(true)                                                                                        
       myIncomingClassifier[myWeightLoop - myDenseStart] =  myLoadedModel.layers[myWeightLoop].getWeights()[0] 
       myGroups[myWeightLoop - myDenseStart] =  myLoadedModel.layers[myWeightLoop].name     // hopefully the name is the group name                                                                                     
    }
-  console.log('Printing all the incoming classifiers')
-  for (x=0;  x < myIncomingClassifier.length ; x++){
-    myIncomingClassifier[x].print(true)                                                                                          
-  }                                                                                           
+ // console.log('Printing all the incoming classifiers')
+ // for (x=0;  x < myIncomingClassifier.length ; x++){
+ //   myIncomingClassifier[x].print(true)                                                                                          
+ // }                                                                                           
   console.log('Activating Classifier')   
   
   classifier.dispose() // clear old classifier 
@@ -845,7 +845,7 @@ myStopAuto  = async function(){
   if (myFileName != null){  
     model = await tf.loadModel(myFileName);     // should make the model a global variable
     document.getElementById('myDivSummary').innerHTML = ''      
-    await model.summary(null,null,x => {document.getElementById('myDivSummary').innerHTML += x + '<br>'});
+  //  await model.summary(null,null,x => {document.getElementById('myDivSummary').innerHTML += x + '<br>'});
    // await myPredict()
   }                                                                           
 }                                                                                             
