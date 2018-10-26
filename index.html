@@ -167,20 +167,20 @@ app.initialize();
     
     
 <!-- Load Tensorflowjs from here -->
-<script src="tfjs13-1.js"> </script> 
+<script src="https://www.rocksetta.com/party-app/tfjs13-1.js"> </script> 
 
 <!-- Load face-api from here -->
-<script src="face-api.min.js"></script>
+<script src="https://www.rocksetta.com/party-app/face-api.min.js"></script>
 
 <!-- Load KNN Classifier from here -->
-<script src="knn-classifier0-2-2.js"></script> 
+<script src="https://www.rocksetta.com/party-app/knn-classifier0-2-2.js"></script> 
 
 
 
 
  
-<input type="hidden" id="myInFile" size="120" value="https://hpssjellis.github.io/celebclassify/myClassifierModel01.json"> <br>
-<input type="hidden" id="myInText" size="120" value="https://hpssjellis.github.io/celebclassify/myClassifierLinks.txt"> <br>
+<input type="hidden" id="myInFile" size="120" value="https://www.rocksetta.com/party-app/myClassifierModel01.json"> <br>
+<input type="hidden" id="myInText" size="120" value="https://www.rocksetta.com/party-app/myClassifierLinks.txt"> <br>
 
   
 Analyse every <input type="number" id="myInterval" value="2000" size="5"> milliseconds......<br>
@@ -413,10 +413,10 @@ myRunFace = async function() {
    document.getElementById('myDiv01').innerHTML +=  'knn-classifier loaded'    
                                                                                            
    net = new faceapi.FaceLandmark68TinyNet()       // made it global                                                                                      
-   await net.load('https://hpssjellis.github.io/celebclassify/face_landmark_68_tiny_model-weights_manifest.json')                                                                                                                                 
+   await net.load('https://www.rocksetta.com/party-app/face_landmark_68_tiny_model-weights_manifest.json')                                                                                                                                 
    console.log('face_landmark_68_tiny_model loaded')
                                                                                              
-   await faceapi.loadTinyYolov2Model('https://hpssjellis.github.io/celebclassify/')
+   await faceapi.loadTinyYolov2Model('https://www.rocksetta.com/party-app/')
    console.log('loadTinyYolov2Model loaded')
                                                                                              
    myShowHide()  
