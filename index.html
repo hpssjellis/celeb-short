@@ -572,7 +572,7 @@ myPredict = async function(){
      // console.log(myMatchArray[myIt])                                                                                              
       if (myMatchArray[myIt] == myMatchArray[myMatchCount]){   // check if this one was matched before  
         // console.log(myMatchArray[myIt] + ' == ' +myMatchArray[myMatchCount])  
-         document.getElementById('myDivTest').innerHTML = 'App Finished, Double Match Found<br>'+ document.getElementById('myDivTest').innerHTML                                                                                  
+         document.getElementById('myDivTest').innerHTML = '<font color=red>Done:<br></font>'+ document.getElementById('myDivTest').innerHTML                                                                                  
          myStopAuto()                                                                                     
       }  
     }  // end for     
@@ -594,7 +594,7 @@ myPredict = async function(){
                                                                                                                 
    // document.getElementById('myDivTest').innerHTML =  '<div style=color:red; onclick={myLoadOneImage('+result.classIndex+')}>This match: '+myGroups[result.classIndex]+ '</div>' + document.getElementById('myDivTest').innerHTML                                                                                        
                                                                                                                  
-    document.getElementById('myDivTest').innerHTML =  'Nearest Match: <div style=color:blue; onclick={myLoadOneImage('+result.classIndex+')}>'+myGroups[result.classIndex]+ '</div>' + document.getElementById('myDivTest').innerHTML                                                                                        
+    document.getElementById('myDivTest').innerHTML =  'Nearest Match: <span style=color:blue; onclick={myLoadOneImage('+result.classIndex+')}>'+myGroups[result.classIndex]+ '</span>' + document.getElementById('myDivTest').innerHTML                                                                                        
                                                                        
                                                                                            
   } // end box drawing OK                                                                                             
