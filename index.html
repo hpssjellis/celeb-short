@@ -149,7 +149,7 @@ app.initialize();
             <div class="action stop" id="stop">Stop</div>
 
         </div>
-        <div id="myDivTest" style="width:300px;  height:400px; overflow:scroll; ">...</div><br>
+        <div id="myDivTest" style="width:800px;  height:400px; overflow:scroll; ">...</div><br>
     </div>
 </div>
     <hr>
@@ -594,7 +594,7 @@ myPredict = async function(){
                                                                                                                 
    // document.getElementById('myDivTest').innerHTML =  '<div style=color:red; onclick={myLoadOneImage('+result.classIndex+')}>This match: '+myGroups[result.classIndex]+ '</div>' + document.getElementById('myDivTest').innerHTML                                                                                        
                                                                                                                  
-    document.getElementById('myDivTest').innerHTML =  '<div style=color:red; onclick={myLoadOneImage('+result.classIndex+')}>Nearest Match: '+myGroups[result.classIndex]+ '</div>' + document.getElementById('myDivTest').innerHTML                                                                                        
+    document.getElementById('myDivTest').innerHTML =  'Nearest Match: <div style=color:blue; onclick={myLoadOneImage('+result.classIndex+')}>'+myGroups[result.classIndex]+ '</div>' + document.getElementById('myDivTest').innerHTML                                                                                        
                                                                        
                                                                                            
   } // end box drawing OK                                                                                             
