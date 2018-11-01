@@ -141,8 +141,9 @@ app.initialize();
 <div class="app">
     <div id="deviceready">
         <canvas class="raster" id="fullsize"></canvas>
-        <canvas id="myInCanvas" width="320" height="320" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="myInCavas: Shows the latest fit"></canvas><br>
-
+        <canvas id="myInCanvas" width="640" height="480" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="myInCavas: Shows the latest fit"></canvas><br>
+     <--  <canvas id="myInCanvas" width="320" height="320" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="myInCavas: Shows the latest fit"></canvas><br>   -->
+   
         <div class="actions">
             <div class="action play" id="play">Play</div>
             <div class="action switch" id="switch">Switch</div>
@@ -200,19 +201,31 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 
 
 
+<canvas id="my32x32CanvasA" width="640" height="480" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="my32x32CanvasA: interval snapshots, presently for training"></canvas>
+<br>
+<canvas id="myFaceCanvas" width="640" height="480" style="border: 1px solid #ddd;" title="myFaceCanvas: Zoomed in face"></canvas>
+<br>
+<canvas id="myVideoAsCanvas" width="640" height="480" style="border: 1px solid #ddd;" title="myVideoAsCanvas: back layer"></canvas><br>
+<canvas id="myBorderAsCanvas" style="position:relative; left:0px; top:-325px" title="myBorderAsCanvas: Layer with box, in front of myVideoAsCanvas interval snapshot"></canvas>
 
+  
 
  
 
-
+<!--
 
 <canvas id="my32x32CanvasA" width="320" height="320" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="my32x32CanvasA: interval snapshots, presently for training"></canvas>
 <br>
 <canvas id="myFaceCanvas" width="320" height="320" style="border: 1px solid #ddd;" title="myFaceCanvas: Zoomed in face"></canvas>
 <br>
 <canvas id="myVideoAsCanvas" width="320" height="320" style="border: 1px solid #ddd;" title="myVideoAsCanvas: back layer"></canvas><br>
-<!-- <canvas id="myBorderAsCanvas" style="position:relative; left:-325px" title="myBorderAsCanvas: Layer with box, in front of myVideoAsCanvas interval snapshot"></canvas> -->
 <canvas id="myBorderAsCanvas" style="position:relative; left:0px; top:-325px" title="myBorderAsCanvas: Layer with box, in front of myVideoAsCanvas interval snapshot"></canvas>
+
+    
+    -->
+    
+    
+    <!-- <canvas id="myBorderAsCanvas" style="position:relative; left:-325px" title="myBorderAsCanvas: Layer with box, in front of myVideoAsCanvas interval snapshot"></canvas> -->
 
 
  <div id="myDiv01">...</div><br>     
