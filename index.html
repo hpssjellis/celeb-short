@@ -230,6 +230,7 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 
 
  <div id="myDiv01">...</div><br>     
+ <div id="myDiv02">...</div><br>     
     
 <!-- <div id="myDivLoss">...</div><br> -->
  
@@ -295,7 +296,7 @@ myShowInfo = async function() {
                                                                                                    
       myIncomingImages[myIteration] = []    // make new part of 2D array                                                                         
       myIncomingImages[myIteration] = myIn[myIteration].split(',')    // [0] = groups,   [1] = labels,    [2] = Image URL                                                                                       
-      document.getElementById('myDiv01').innerHTML +=  myIteration+`: `+myIncomingImages[myIteration][1]+ `<br>`                                                                                  
+      document.getElementById('myDiv02').innerHTML +=  myIteration+`: `+myIncomingImages[myIteration][1]+ `<br>`                                                                                  
    }                                                                                       
 }                                                                                           
                                                                                            
