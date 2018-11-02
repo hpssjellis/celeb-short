@@ -560,11 +560,18 @@ myPredict = async function(){
                                       
      let myCanvasElement3 = document.getElementById('myFaceCanvas');
      let myCTX3 = myCanvasElement3.getContext('2d');
-     myCTX3.clearRect(0,0, myCanvasElement3.width, myCanvasElement3.height)
+                                                                                                  
+     myCTX3.clearRect(0,0, myCanvasElement3.width, myCanvasElement3.height)                                                                                      
+                                                                                 
+     
+     /////////////////////////////////////////////////////                                                                                      
+     //make the height same as the orignal  but calulate a converted for the width.
+     const myConvert = myCanvasElement3.height / result2[0]._box._height+(2*myFaceToClose)                                                                                      
                                                                                            
+     myCanvasElement3.width = parseFloat(result2[0]._box._width) * parseFloat(myConvert)                                                                                    
                                                                                            
-     myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose));      // see if this keeps the normal size                                                                                   
-   //  myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, myCanvasElement3.width, myCanvasElement3.height);
+   //  myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose));      // see if this keeps the normal size                                                                                   
+     myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, myCanvasElement3.width, myCanvasElement3.height);
                                                                                          
      let img3 = tf.fromPixels(myFaceCanvas);    // the bounded canvas                                                                                                                    
      const myLandmarks = await net.detectLandmarks(img3)                                                                                                                                                                                      
