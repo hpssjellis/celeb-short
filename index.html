@@ -622,8 +622,17 @@ myPredict = async function(){
 
   // document.getElementById('myDivTest').innerHTML =  `<a href='https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`' target='_blank'>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
  
- document.getElementById('myDivTest').innerHTML =  `<a href='https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`' target='_system'>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
-                                                                       
+ //document.getElementById('myDivTest').innerHTML =  `<a href='https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`' target='_system'>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+  
+ document.getElementById('myDivTest').innerHTML =  `<a onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self')>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+      //window.open('http://www.google.com','_blank');    
+                                                                                           
+                                                                                           
+ //<input type=button value='Google _system' style='font-size:30px' onclick='{window.open('http://www.google.com','_system');}'><br>                                                                                          
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
                                                                                            
   } // end box drawing OK                                                                                             
  } else {(console.log('Need to train groups'))}
