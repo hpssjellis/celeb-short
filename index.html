@@ -574,8 +574,9 @@ myPredict = async function(){
      myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, myCanvasElement3.width, myCanvasElement3.height);
                                                                                          
      let img3 = tf.fromPixels(myFaceCanvas);    // the bounded canvas                                                                                                                    
-     const myLandmarks = await net.detectLandmarks(img3)                                                                                                                                                                                      
-  
+     const myLandmarks = await net.detectLandmarks(img3)    
+                                                                                           
+     newArray2.length = 0   // attempt to zero the array
      for (let j=0;  j < myLandmarks._faceLandmarks.length; j++ ){  
        newArray2[j] = []                                                                                        
        newArray2[j][0] = myLandmarks._faceLandmarks[j].x                                                                
