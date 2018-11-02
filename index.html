@@ -290,13 +290,13 @@ myCheckGroups   = async function() {
 myShowInfo = async function() {
                                                                                              
      myIn = document.getElementById('myArray01').value.split('***')    // made it global
-   document.getElementById('myDivLoss').innerHTML = '' // clear it  
+  
                                                                                              
    for (myIteration = 0;  myIteration < myIn.length; myIteration++){   
                                                                                                    
       myIncomingImages[myIteration] = []    // make new part of 2D array                                                                         
       myIncomingImages[myIteration] = myIn[myIteration].split(',')    // [0] = groups,   [1] = labels,    [2] = Image URL                                                                                       
-      document.getElementById('myDiv02').innerHTML +=  myIteration+`: `+myIncomingImages[myIteration][1]+ `<br>`                                                                                  
+      document.getElementById('myDiv02').innerHTML +=  myIncomingImages[myIteration][0]+`: `+myIncomingImages[myIteration][1]+ `<br>`                                                                                  
    }                                                                                       
 }                                                                                           
                                                                                            
