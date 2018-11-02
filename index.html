@@ -285,6 +285,23 @@ myCheckGroups   = async function() {
  }                                                                                            
                                                                                              
 
+                                                   
+myShowInfo = async function() {
+                                                                                             
+     myIn = document.getElementById('myArray01').value.split('***')    // made it global
+   document.getElementById('myDivLoss').innerHTML = '' // clear it  
+                                                                                             
+   for (myIteration = 0;  myIteration < myIn.length; myIteration++){   
+                                                                                                   
+      myIncomingImages[myIteration] = []    // make new part of 2D array                                                                         
+      myIncomingImages[myIteration] = myIn[myIteration].split(',')    // [0] = groups,   [1] = labels,    [2] = Image URL                                                                                       
+      document.getElementById('myDiv01').innerHTML +=  myIteration+`: `+myIncomingImages[myIteration][1]+ `<br>`                                                                                  
+   }                                                                                       
+}                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
+                                                                                           
                                                                                            
 myShowHide = async function() {
     if ( myShowDataPoints) {
@@ -445,7 +462,10 @@ myRunFace = async function() {
    document.getElementById('myDiv01').innerHTML += 'my classifier loaded<br>'
         
    takeAuto()        
-   document.getElementById('myDiv01').innerHTML += 'myAuto active<br>'                                                                                           
+   document.getElementById('myDiv01').innerHTML += 'myAuto active<br>'       
+                                                                                           
+   myShowInfo()                                                                                        
+                                                                                           
 }
 
 
@@ -571,8 +591,8 @@ myPredict = async function(){
      myCanvasElement3.width = parseFloat(result2[0]._box._width) * parseFloat(myConvert)
 
        
-      document.getElementById('myDiv01').innerHTML += '<br> myConvert: '+myConvert+' ,myCanvasElement3.width: '+myCanvasElement3.width+
-            ', result2[0]._box._height: '+result2[0]._box._height+' ,result2[0]._box._width: '+result2[0]._box._width+                                                                                
+  //    document.getElementById('myDiv01').innerHTML += '<br> myConvert: '+myConvert+' ,myCanvasElement3.width: '+myCanvasElement3.width+
+  //          ', result2[0]._box._height: '+result2[0]._box._height+' ,result2[0]._box._width: '+result2[0]._box._width+                                                                                
                                                                                                                                                                             
                                                                                            
    //  myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose));      // see if this keeps the normal size                                                                                   
