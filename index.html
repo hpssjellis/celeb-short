@@ -627,9 +627,11 @@ myPredict = async function(){
  
  //document.getElementById('myDivTest').innerHTML =  `<a href='https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`' target='_system'>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
   
- document.getElementById('myDivTest').innerHTML =  `<a onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self')>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
-      //window.open('http://www.google.com','_blank');    
-                                                                                           
+// document.getElementById('myDivTest').innerHTML =  `<a onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self')>Nearest Match: `+myGroups[result.classIndex]+ `</a><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+ 
+   document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+ 
+                                                                                          
                                                                                            
  //<input type=button value='Google _system' style='font-size:30px' onclick='{window.open('http://www.google.com','_system');}'><br>                                                                                          
                                                                                            
