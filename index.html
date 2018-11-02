@@ -632,7 +632,7 @@ myPredict = async function(){
  //<input type=button value='Google _system' style='font-size:30px' onclick='{window.open('http://www.google.com','_system');}'><br>                                                                                          
                                                                                            
   
-   document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `>${newArray2[0][0]}, ${newArray2[0][1]}<br><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+   document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `>${Math.round(newArray2[0][0])}, ${Math.round(newArray2[0][1])}<br><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
  
                                                                                           
                                                                                          
