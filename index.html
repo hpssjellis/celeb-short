@@ -607,9 +607,9 @@ myPredict = async function(){
      
      /////////////////////////////////////////////////////                                                                                      
      //make the height same as the orignal  but calulate a converted for the width.
-     const myConvert = myCanvasElement3.height / (result2[0]._box._height+(2*myFaceToClose)  )                                                                                    
+     const myConvert = ( parseFloat(myCanvasElement3.height) / parseFloat( result2[0]._box._height)   )                                                                                 
                                                                                            
- /   myCanvasElement3.width = (parseFloat(result2[0]._box._width) * parseFloat(myConvert)) 
+      myCanvasElement3.width = ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) ) 
 
     //  myCanvasElement3.height = parseFloat( result2[0]._box._height )                                                                                     
     //  myCanvasElement3.width = parseFloat( result2[0]._box._width )                                                                                     
