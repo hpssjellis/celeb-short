@@ -201,6 +201,9 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
     
     
 <br><br>
+    
+ <!--   
+    
   Train a few items with a group number and a text label<br>
 <input type=button value="Train. Get close, no bounding box used" onclick="{myNewTrain()}"> 
 <input type=number value=0 size=3 id="myClassNumber" onchange = "{
@@ -215,7 +218,7 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 
 <input type=button value="Load Classifier" onclick="{myClassifierLoad()}"> <br>   
    
-
+-->
 
 
 <canvas id="my32x32CanvasA" width="640" height="480" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="my32x32CanvasA: interval snapshots, presently for training"></canvas>
@@ -267,7 +270,8 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 <style id="myButton124" onload="{document.getElementById('myButton124').click()}" onclick="{
 
  ///////////////////////////////////// Global Variables ////////////////////////////////                                                                                            
-                                                                                            
+
+let myDebug = true                 // set to false for final versions                                                                                 
 //position:relative; left:-650px;
 let myGroups = []
 let newArray = []  
@@ -680,9 +684,12 @@ myPredict = async function(){
                                                                                             
  //<input type=button value='Google _system' style='font-size:30px' onclick='{window.open('http://www.google.com','_system');}'><br>                                                                                          
                                                                                            
-  
+ if (myDebug){ 
    document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `>x:${Math.round(newArray2[0][0])}, y:${Math.round(newArray2[0][1])}<br>` + document.getElementById('myDivTest').innerHTML                                                                                        
- 
+ } else {
+   document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+                                                                                          
+ }
                                                                                           
                                                                                          
                                                                                            
