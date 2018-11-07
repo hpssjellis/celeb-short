@@ -649,13 +649,17 @@ myPredict = async function(){
     //  myCanvasElement3.width = ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) ) 
                                                                                            
      // switching width and height to test
-     const myConvert = ( parseFloat(myCanvasElement3.height) / parseFloat( result2[0]._box._width)   )                                                                                 
+    // const myConvert = ( parseFloat(myCanvasElement3.height) / parseFloat( result2[0]._box._width)   )                                                                                 
                                                                                            
-      myCanvasElement3.width= ( parseFloat(result2[0]._box._height) * parseFloat(myConvert) )                                                                                       
+     // myCanvasElement3.width= ( parseFloat(result2[0]._box._height) * parseFloat(myConvert) )                                                                                       
                                                                                            
 
     //  myCanvasElement3.height = parseFloat( result2[0]._box._height )                                                                                     
     //  myCanvasElement3.width = parseFloat( result2[0]._box._width )                                                                                     
+        
+       const myNewWidth =  parseFloat( result2[0]._box._width ) * 3        
+       const myNewHeight =  parseFloat( result2[0]._box._height ) * 3                                                                                  
+                                                                                           
                                                                                            
                                                                                            
        
@@ -664,9 +668,10 @@ myPredict = async function(){
                                                                                                                                                                             
                                                                                            
    //  myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose));      // see if this keeps the normal size                                                                                   
-     myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, myCanvasElement3.width, myCanvasElement3.height);
+    // myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, myCanvasElement3.width, myCanvasElement3.height);
    //     myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose));
-   
+     myCTX3.drawImage(myCanvasElement4, result2[0]._box._x-myFaceToClose, result2[0]._box._y-myFaceToClose, result2[0]._box._width+(2*myFaceToClose), result2[0]._box._height+(2*myFaceToClose), 0, 0, myNewWidth, myNewHeight);
+ 
                                                                                            
                                                                                            
      tf.nextFrame()                                                                                    
