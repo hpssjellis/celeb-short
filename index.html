@@ -241,7 +241,7 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 <canvas id="myFaceCanvas" width="240" height="320" style="border: 1px solid #ddd;" title="myFaceCanvas: Zoomed in face"></canvas>
 <br>
 <canvas id="myVideoAsCanvas" width="240" height="320" style="border: 1px solid #ddd;" title="myVideoAsCanvas: back layer"></canvas><br>
-<canvas id="myBorderAsCanvas" style="position:relative; left:0px; top:-480px" title="myBorderAsCanvas: Layer with box, in front of myVideoAsCanvas interval snapshot"></canvas>
+<canvas id="myBorderAsCanvas" style="position:relative; left:0px; top:-320px" title="myBorderAsCanvas: Layer with box, in front of myVideoAsCanvas interval snapshot"></canvas>
 
   
 
@@ -644,9 +644,15 @@ myPredict = async function(){
      
      /////////////////////////////////////////////////////                                                                                      
      //make the height same as the orignal  but calulate a converted for the width.
-     const myConvert = ( parseFloat(myCanvasElement3.height) / parseFloat( result2[0]._box._height)   )                                                                                 
+    // const myConvert = ( parseFloat(myCanvasElement3.height) / parseFloat( result2[0]._box._height)   )                                                                                 
                                                                                            
-      myCanvasElement3.width = ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) ) 
+    //  myCanvasElement3.width = ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) ) 
+                                                                                           
+     // switching width and height to test
+     const myConvert = ( parseFloat(myCanvasElement3.width) / parseFloat( result2[0]._box._height)   )                                                                                 
+                                                                                           
+      myCanvasElement3.height= ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) )                                                                                       
+                                                                                           
 
     //  myCanvasElement3.height = parseFloat( result2[0]._box._height )                                                                                     
     //  myCanvasElement3.width = parseFloat( result2[0]._box._width )                                                                                     
