@@ -649,9 +649,9 @@ myPredict = async function(){
     //  myCanvasElement3.width = ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) ) 
                                                                                            
      // switching width and height to test
-     const myConvert = ( parseFloat(myCanvasElement3.width) / parseFloat( result2[0]._box._height)   )                                                                                 
+     const myConvert = ( parseFloat(myCanvasElement3.height) / parseFloat( result2[0]._box._width)   )                                                                                 
                                                                                            
-      myCanvasElement3.height= ( parseFloat(result2[0]._box._width) * parseFloat(myConvert) )                                                                                       
+      myCanvasElement3.width= ( parseFloat(result2[0]._box._height) * parseFloat(myConvert) )                                                                                       
                                                                                            
 
     //  myCanvasElement3.height = parseFloat( result2[0]._box._height )                                                                                     
