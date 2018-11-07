@@ -190,12 +190,13 @@ app.initialize();
    
     
     
-    
+ <br><br>    
 <input type=checkbox id="myCheck01" onclick="{                                            
     myChangeCheckBox()                                                                               
-}">Show zoomed 68 data points, <input type=checkbox id="myContinuous">Continuous
+}">Show zoomed 68 data points<br>
+<input type=checkbox id="myContinuous">Continuous<br>
  
-<br><br> 
+
 <input type="hidden" id="myInterval" value="2000" size="5"> 
 <input type="button" id="myButtonAuto" value="Reset" onclick="{takeAuto()}"> 
 <input type="button" value="Stop" onclick="{myStopAuto()}"><br><br>    
@@ -287,6 +288,8 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 
 let myDebug = false                // set to false for final versions    
 let myRun = true                                                                                           
+
+let myStoredInterval                                                                                           
                                                                                            
 //position:relative; left:-650px;
 let myGroups = []
@@ -956,7 +959,8 @@ takeAuto = async function(){
      myMatchCount = -1    // reset match array
      myMatchArray.length = 0                                                 
    // console.log(myMatchArray)                                                                                       
-                                                                                           
+                                                                                 
+    clearInterval(myStoredInterval)                                                                                          
     myStoredInterval = setInterval(async function(){                                                                                         
        await myPredict()                                                                                   
    }, document.getElementById('myInterval').value);        
