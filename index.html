@@ -195,17 +195,17 @@ app.initialize();
     myChangeCheckBox()                                                                               
 }">Show zoomed 68 data points, <input type=checkbox id="myContinuous">Continuous
  
- 
+<br><br> 
 <input type="hidden" id="myInterval" value="2000" size="5"> 
-    
+<input type="button" id="myButtonAuto" value="Reset" onclick="{takeAuto()}"> 
+<input type="button" value="Stop" onclick="{myStopAuto()}"><br><br>    
 <br><br>
     
  <!--   
 
   
 Analyse every <input type="number" id="myInterval" value="2000" size="5"> milliseconds......<br>
-<input type="button" id="myButtonAuto" value="Reset" onclick="{takeAuto()}"> 
-<input type="button" value="Stop" onclick="{myStopAuto()}"><br><br>
+
 
 
 <input type=button value="checkInputs" onclick="{myShowInfo()}">   
@@ -286,7 +286,7 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
  ///////////////////////////////////// Global Variables ////////////////////////////////                                                                                            
 
 let myDebug = false                // set to false for final versions    
-                                                                                           
+let myRun = true                                                                                           
                                                                                            
 //position:relative; left:-650px;
 let myGroups = []
@@ -403,7 +403,7 @@ myLoadManyImages = async function() {
        const forwardParams = {inputSize: 'sm', scoreThreshold:0.5}   // 'xs' (224 x 224) | 'sm' (320 x 320) | 'md' (416 x 416) | 'lg' (608 x 608)  //0, 1, 2, 3
        result2 = await faceapi.tinyYolov2(can, forwardParams) 
        console.log(myI)  
-       console.log(result2)  
+      // console.log(result2)  
        if (result2.length > 0){     
                                                                                              
           myGroups[myI] =  myIncomingImages[myIteration][1]       // add the label to the myGroups array                                                             
@@ -583,6 +583,8 @@ myNewTrain = async function(){
                                                                                              
                                                                                              
 myPredict = async function(){
+                                                                                           
+  if (myRun){                                                                                         
   document.getElementById('myDivTest').innerHTML +='.'
   let scoreThreshold = 0.5   //0.5
   let sizeType = 'sm'      // 'xs' (224 x 224) | 'sm' (320 x 320) | 'md' (416 x 416) | 'lg' (608 x 608)  //0, 1, 2, 3
@@ -733,8 +735,8 @@ myPredict = async function(){
                                                                                            
   } // end box drawing OK                                                                                             
  } else {(console.log('Need to train groups'))}
-                                                                                             
-}
+}   // end myRun                                                                                             
+}  
                                                                                              
     
                                                                                              
@@ -948,11 +950,12 @@ getVideo = async function() {
 
                                                                                              
 takeAuto = async function(){  
+     myRun = true                                                                                      
      document.getElementById('myDivTest').innerHTML = '<br><br>'+ document.getElementById('myDivTest').innerHTML                                                                                       
      document.body.style.backgroundColor = 'white'                                                                                     
      myMatchCount = -1    // reset match array
      myMatchArray.length = 0                                                 
-    console.log(myMatchArray)                                                                                       
+   // console.log(myMatchArray)                                                                                       
                                                                                            
     myStoredInterval = setInterval(async function(){                                                                                         
        await myPredict()                                                                                   
@@ -963,6 +966,7 @@ takeAuto = async function(){
                                                                                              
                                                                                              
 myStopAuto  = async function(){ 
+     myRun=false
      myMatchCount = -1    // reset match array
      myMatchArray.length = 0                                                                                         
     clearInterval(myStoredInterval)  
