@@ -47,11 +47,11 @@ var app = {
         if (window.plugin.CanvasCamera) {
            var options = {
               canvas: {
-                width: 500,
+                width: 480,
                 height: 480
               },
               capture: {
-                width: 500,
+                width: 480,
                 height: 480
               },
               use: 'file',
@@ -726,7 +726,7 @@ myPredict = async function(){
  //<input type=button value='Google _system' style='font-size:30px' onclick='{window.open('http://www.google.com','_system');}'><br>                                                                                          
                                                                                            
  if (myDebug){ 
-   document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `>x:${Math.round(newArray2[0][0])}, y:${Math.round(newArray2[0][1])}<br>` + document.getElementById('myDivTest').innerHTML                                                                                        
+   document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `> Group: ${result.classIndex}, x:${Math.round(newArray2[0][0])}, y:${Math.round(newArray2[0][1])}<br>` + document.getElementById('myDivTest').innerHTML                                                                                        
  } else {
    document.getElementById('myDivTest').innerHTML =  `<input type=button onclick=window.open('https://www.google.com/search?&tbm=isch&q=`+myGroups[result.classIndex]+`','_self') value=`+myGroups[result.classIndex]+ `><br>` + document.getElementById('myDivTest').innerHTML                                                                                        
                                                                                           
