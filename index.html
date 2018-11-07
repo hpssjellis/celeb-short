@@ -146,7 +146,7 @@ app.initialize();
      <!--  <canvas id="myInCanvas" width="320" height="320" style="display:inline; border: 1px solid #ddd;  interpolation-mode: nearest-neighbor;" title="myInCavas: Shows the latest fit"></canvas><br>   -->
    
         <div class="actions">
-            <div class="action play" id="play">Play</div>
+            <div class="action play" id="play">Start</div>
             <div class="action switch" id="switch">Switch</div>
             <div class="action stop" id="stop">Stop</div>
 
@@ -185,10 +185,7 @@ app.initialize();
 <input type="hidden" id="myInFile" size="120" value="https://www.rocksetta.com/party-app/myClassifierModel01.json"> <br>
 <input type="hidden" id="myInText" size="120" value="https://www.rocksetta.com/party-app/myClassifierLinks.txt"> <br>
 
-  
-Analyse every <input type="number" id="myInterval" value="2000" size="5"> milliseconds......<br>
-<input type="button" id="myButtonAuto" value="Reset" onclick="{takeAuto()}"> 
-<input type="button" value="Stop" onclick="{myStopAuto()}"><br><br>
+
 
    
     
@@ -197,18 +194,34 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 <input type=checkbox id="myCheck01" onclick="{                                            
     myChangeCheckBox()                                                                               
 }">Show zoomed 68 data points, <input type=checkbox id="myContinuous">Continuous
-<input type=button value="checkInputs" onclick="{myShowInfo()}">    
+ 
     
     
 <br><br>
     
  <!--   
+
+  
+Analyse every <input type="number" id="myInterval" value="2000" size="5"> milliseconds......<br>
+<input type="button" id="myButtonAuto" value="Reset" onclick="{takeAuto()}"> 
+<input type="button" value="Stop" onclick="{myStopAuto()}"><br><br>
+
+
+<input type=button value="checkInputs" onclick="{myShowInfo()}">   
+
+
+
     
   Train a few items with a group number and a text label<br>
 <input type=button value="Train. Get close, no bounding box used" onclick="{myNewTrain()}"> 
 <input type=number value=0 size=3 id="myClassNumber" onchange = "{
    myTextChange()                                                       
 }">
+
+
+
+
+
 <input type=text id="myClassText" placeholder="Label for this trained class: example Cell Phone" value="Joe Smith"><br><br>
 
  
@@ -271,7 +284,9 @@ Analyse every <input type="number" id="myInterval" value="2000" size="5"> millis
 
  ///////////////////////////////////// Global Variables ////////////////////////////////                                                                                            
 
-let myDebug = true                 // set to false for final versions                                                                                 
+let myDebug = false                // set to false for final versions    
+                                                                                           
+                                                                                           
 //position:relative; left:-650px;
 let myGroups = []
 let newArray = []  
@@ -459,31 +474,47 @@ myRunFace = async function() {
    document.getElementById('myDiv01').innerHTML = ''     // clear the message area                                                                                      
   // document.getElementById('myContinuous').checked = false    // force to stop at a match                                                                                     
    
-   myLoadLinks()                                                                                         
-   console.log('Classfier Links loaded')                                                                                       
-   document.getElementById('myDiv01').innerHTML +=  'Classfier Links loaded'    
+   myLoadLinks()   
                                                                                            
-   classifier = knnClassifier.create();                                     
-   console.log('knn-classifier loaded')                                                 
-   document.getElementById('myDiv01').innerHTML +=  'knn-classifier loaded'    
+   if (myDebug){                                                                                        
+     console.log('Classfier Links loaded')                                                                                       
+     document.getElementById('myDiv01').innerHTML +=  'Classfier Links loaded'    
+   }
+                                                                                           
+   classifier = knnClassifier.create();  
+   if (myDebug){                                                                                            
+      console.log('knn-classifier loaded')                                                 
+      document.getElementById('myDiv01').innerHTML +=  'knn-classifier loaded'    
+   }
                                                                                            
    net = new faceapi.FaceLandmark68TinyNet()       // made it global                                                                                      
-   await net.load('https://www.rocksetta.com/party-app/face_landmark_68_tiny_model-weights_manifest.json')                                                                                                                                 
+   await net.load('https://www.rocksetta.com/party-app/face_landmark_68_tiny_model-weights_manifest.json') 
+                                                                                           
+   if (myDebug){                                                                                            
    console.log('face_landmark_68_tiny_model loaded')
-                                                                                             
+   }
+                                                                                           
    await faceapi.loadTinyYolov2Model('https://www.rocksetta.com/party-app/')
-   console.log('loadTinyYolov2Model loaded')
-                                                                                             
+   if (myDebug){                                                                                        
+     console.log('loadTinyYolov2Model loaded')
+   }                                                                                          
    myShowHide()  
   // console.log('Hiding Data Images')   
+   if (myDebug){                                                                                        
+      document.getElementById('myDiv01').innerHTML += 'myRunFace Done<br>'
+   }     
                                                                                            
-   document.getElementById('myDiv01').innerHTML += 'myRunFace Done<br>'
-        
+                                                                                           
    myClassifierLoad()
-   document.getElementById('myDiv01').innerHTML += 'my classifier loaded<br>'
-        
-   takeAuto()        
-   document.getElementById('myDiv01').innerHTML += 'myAuto active<br>'       
+   if (myDebug){                                                                                        
+     document.getElementById('myDiv01').innerHTML += 'my classifier loaded<br>'
+   }     
+                                                                                           
+                                                                                           
+   takeAuto()  
+   if (myDebug){                                                                                        
+     document.getElementById('myDiv01').innerHTML += 'myAuto active<br>'       
+   }        
                                                                                            
   // myShowInfo()                                                                                        
                                                                                            
