@@ -19,7 +19,8 @@
   <preference name="phonegap-version" value="cli-8.0.0" />  
 
  
-  <preference name="orientation" value="default" />
+<!--  <preference name="orientation" value="default" />  -->
+  <preference name="orientation" value="portrait" />
   <preference name="fullscreen" value="true" />
 
 
