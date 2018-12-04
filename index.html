@@ -111,8 +111,7 @@ document.head.appendChild(script);
 
  
  
-<input type="hidden" id="myInFile" size="120" value="https://hpssjellis.github.io/celeb2-classify/myClassifierModel01.json"> <br>
-<input type="hidden" id="myInText" size="120" value="https://hpssjellis.github.io/celeb2-classify/myClassifierLinks.txt"> <br>
+<input type="hidden" id="myInFile" size="120" value="file:///android_asset/www/myClassifierModel01.json"> <br>
  
  <input type=button style="font-size:25px;" value=" Train " onclick="{
     myOkToTrain = true
@@ -370,8 +369,8 @@ async function run() {
  
  
   // myOrient()
-   await faceapi.loadTinyFaceDetectorModel('https://hpssjellis.github.io/celeb2-classify/')
-   await faceapi.loadFaceLandmarkTinyModel('https://hpssjellis.github.io/celeb2-classify/')
+   await faceapi.loadTinyFaceDetectorModel('file:///android_asset/www/')
+   await faceapi.loadFaceLandmarkTinyModel('file:///android_asset/www/')
  
   if(window.orientation == 0){
       // portrait
