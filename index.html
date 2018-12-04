@@ -7,11 +7,6 @@
 <script src="tfjs13-1.js"></script> 
 <script src="knn-classifier0-2-2.js"></script> 
   
-  
-  
-  
-    
-    
 
   
   
@@ -111,7 +106,7 @@ document.head.appendChild(script);
 
  
  
-<input type="hidden" id="myInFile" size="120" value="file:///android_asset/www/myClassifierModel01.json"> <br>
+<input type="hidden" id="myInFile" size="120" value="https://hpssjellis.github.io/celeb2-classify/myClassifierModel01.json"> <br>
  
  <input type=button style="font-size:25px;" value=" Train " onclick="{
     myOkToTrain = true
@@ -364,13 +359,17 @@ async function onPlay() {
 async function run() {
  
  if (isPhoneGapWebView){
-     // window.open = cordova.InAppBrowser.open;
- }
+   await faceapi.loadTinyFaceDetectorModel('https://www.rocksetta.com/party-app/')
+   await faceapi.loadFaceLandmarkTinyModel('https://www.rocksetta.com/party-app/')
+ }  else {
  
  
   // myOrient()
-   await faceapi.loadTinyFaceDetectorModel('file:///android_asset/www/')
-   await faceapi.loadFaceLandmarkTinyModel('file:///android_asset/www/')
+   await faceapi.loadTinyFaceDetectorModel('https://hpssjellis.github.io/celeb2-classify/')
+   await faceapi.loadFaceLandmarkTinyModel('https://hpssjellis.github.io/celeb2-classify/')
+ }
+ 
+ 
  
   if(window.orientation == 0){
       // portrait
@@ -565,8 +564,17 @@ mySetClassiferModelWeights  = async function(){
 //////////////////////////////////////////////////////////////////////////////
 myClassifierLoad  = async function(){
    // note global variable called        myIncomingClassifier        
-                                                                                             
-   const myLoadedModel  = await	tf.loadModel(document.getElementById('myInFile').value)                                                                                          
+   
+    if (isPhoneGapWebView){
+      
+      document.getElementById('myInFile').value = 'https://www.rocksetta.com/party-app/myClassifierModel01.json'   // correct path for Android App 
+
+   } 
+   
+ 
+   const myLoadedModel  = await	tf.loadModel(document.getElementById('myInFile').value)   
+   
+  
    console.log('myLoadedModel.layers.length')   
    console.log(myLoadedModel.layers.length) 
                                            
